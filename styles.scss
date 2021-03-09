@@ -1,0 +1,551 @@
+// Google Font 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap');
+/*  
+    M. Ashuza Portfolio Styles
+    
+*/
+
+// TABLE OF CONTENT 
+/*  
+    0. Basics 
+        -htnl
+        -Container 
+        -Image 
+        -Paragraphe 
+        -Titles 
+    1. Main  Section   
+        -Main 
+        -Keyframes / For Animations
+    2. Second section / Services 
+        -services 
+        -services-top
+            *Title 
+        -services-bottom
+            *service-item
+    3. Third Section / Projects
+        -Projects 
+        -Projects Header
+            *Title 
+        -Projects Contents 
+            *Projects item
+                    #Projects Info
+    4. Forth Section / About   
+        -Column Left 
+            *About me Img 
+        -Column Right
+            *Contents
+    5. Fifth Section / Footer 
+        -Title / brand 
+        -Icons 
+    
+*/
+
+/*  Define variables for the primary colors */
+$maincolor: crimson;
+
+
+// Basics Styles 
+* {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    html {
+        font-size: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+// Container Style
+.Container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// Image Style 
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+// Paragraphe Style
+p {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+}
+// Titles Style 
+.section-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    text-align: center;
+    span {
+        color: crimson;
+    }
+}
+
+// Button  Style 
+.cta {
+    display: inline-block;
+    padding: 18px 30px;
+    color: wheat;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 36px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+    &:hover {
+        color: white;
+        background-color: crimson;
+    }
+} 
+// Brand style
+.brand {
+    h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: wheat;
+        span {
+            color: crimson;
+        }
+    }
+}
+// Basic Styles Wrapper 
+
+
+// Main styles 
+#Main {
+    background-position: top center;
+    background-image: url(./img/bgnd.jpg);
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+   
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: black; 
+        opacity: .7;
+        z-index: -1;
+    }
+   
+    .Main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 50px;
+        justify-content: flex-start;
+    }
+
+    h1 {
+        display: block;
+        width: fit-content;
+        font-size: 4rem;
+        position: relative;
+        color: transparent;
+        animation: text_reveal .5s ease forwards;
+        animation-delay: 1s;
+        &:nth-child(1) {
+            animation-delay: 1s;
+        }
+        &:nth-child(2) {
+            animation-delay: 2s;
+        }
+        &:nth-child(3) {
+            animation: text_reveal_name .5s ease forwards;
+            animation-delay: 3s;
+        }
+        span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background-color: crimson;
+            animation: text_reveal_box 1s ease;
+            animation-delay: .5s;
+        }
+        &:nth-child(1) span {
+            animation-delay: .5s;
+        }
+        &:nth-child(2) span {
+            animation-delay: 1.5s;
+        }
+        &:nth-child(3) span {
+            animation-delay: 2.5s;
+        }
+    }
+    
+    /* KeyFrames */
+    @keyframes text_reveal_box {
+        50% {
+            width: 100%;
+            left: 0;
+        }
+        100% {
+            width: 0;
+            left: 100%;
+        }
+    }
+    @keyframes text_reveal {
+        100% {
+            color: wheat;
+        }
+    }
+    @keyframes text_reveal_name {
+        100% {
+            color: crimson;
+            font-weight: 500px;
+        }
+    }
+    /* Keyframes Wrapper */
+}
+// Main Styles Wrapper 
+
+
+// Cervices Styles 
+#services {
+    .services {
+        flex-direction: column;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 1500px;
+        padding: 100px 0;
+        //.service-top 
+            
+        .service-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+
+            .service-item {
+                flex-basis: 80%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                padding: 30px;
+                border-radius: 10px;
+                background-image: url(./img/img-1.png);
+                background-size: cover;
+                margin: 10px 5%;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+                    opacity: .6;
+                    z-index: -1;
+
+                }
+                .icon {
+                    height: 80px;
+                    width: 80px;
+                    margin-bottom: 20px;   
+                }
+                h2 {
+                    font-size: 2rem;
+                    color: wheat;
+                    margin-bottom: 10px;
+                    text-transform: uppercase;
+                }
+                p {
+                    color: wheat;
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+// Cervices Styles Wrapper 
+
+
+// Project Styles
+#Projects {
+    .Projects {
+        flex-direction: column;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 100px 0;
+
+        .project-header {
+            margin-bottom: 50px;
+        }
+        .project-contents {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .project-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 80%;
+                margin: 20px auto;
+                overflow: hidden;
+                border-radius: 10px;
+
+                .project-info {
+                    padding: 30px;
+                    flex-basis: 50%;
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    flex-direction: column;
+                    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+                    color: white;
+                    h1 {
+                        font-size: 4rem;
+                        font-weight: 500;
+                    }
+                    h2 {
+                        font-size: 1.8rem;
+                        font-weight: 300;
+                        margin-top: 10px;
+                    }
+                }
+                .project-img {
+                    flex-basis: 50%;
+                    height: 300px;
+                    overflow: hidden;
+                    // Doen't work yet 
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+                        opacity: .7;
+                    }
+                    img {
+                        transition: .3s ease transform;
+                    }
+                    & :hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}
+// Projects Styles Wrapper 
+
+
+// About Styles 
+#about {
+    .about {
+        flex-direction: column-reverse;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 100px 20px;
+    }
+    .col-left {
+        width: 250px;
+        height: 360px;
+        
+        .about-img {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            border: 10px solid white;
+            img {
+                border-radius: 8px;
+                box-shadow: 0px 0px 18px 0 #0000002c;
+                transition: .3s ease box-shadow;
+                &:hover {
+                    box-shadow: 0px 0px 5px 0  #0000002c;
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                left: -33px;
+                top: 19px;
+                height: 98%;
+                width: 98%;
+                border: 7px solid crimson;
+                z-index: -1;
+            }
+        }
+    }
+    .col-right {
+        width: 100%;
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: .2rem;
+            margin-bottom: 10px;
+        }
+        p {
+             margin-bottom: 20px;
+        }
+        .cta {
+            margin-bottom: 50px;
+            padding: 10px 20px;
+            font-size: 2rem;
+        }
+    }
+
+}
+// About Styles Wrapper  
+
+// Contact Styles 
+#Contact{
+    .Contact {
+        flex-direction: column;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .contatc-items {
+            width: 400px;
+            margin-bottom: 70px;
+            .contact-item {
+                width: 80%;
+                padding: 20px;
+                text-align: center;
+                border-radius: 10px;
+                padding: 30px;
+                margin: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                box-shadow: 0px 0px 18px 0 #0000002c;
+                transition: .3s ease box-shadow;
+
+                .icon {
+                    width: 70px;
+                    margin: 0 auto;
+                    margin-bottom: 10px;
+                }
+                .contact-details {
+                    h1 {
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+                    h2 {
+                        font-size: 1.3rem;
+                        line-height: 2rem;
+                        font-weight: 500;
+                    }
+                }
+                &:hover {
+                    box-shadow: 0px 0px 5px 0  #0000002c;
+                }
+            }
+        }
+    }
+}
+// Contact Styles Wrapper 
+
+// Footer Styles 
+#footer {
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    .footer {
+        min-height: 200px;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 10px;  
+        h2 {
+            color: wheat;
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: .1rem;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .social-icon {
+            display: flex;
+            margin-bottom: 38px;
+        }
+        .social-item {
+            height: 50px;
+            width: 50px;
+            margin: 0 5px;
+            img {
+                filter: grayscale(1);
+                transition: .3s ease filter;
+                &:hover {
+                    filter:grayscale(0)
+                }
+            }
+        }
+        p {
+            color: wheat;
+            font-size: 1.3rem;
+        }
+    }
+}
+// Footer styles Wrapper 
+
+// Responsiveness 
+
+/* Midia Query for tablet */
+@media only screen and (min-width:768px) {
+    // button
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1.section-title {
+        font-size: 6rem;
+    }
+    /* Main */
+    #Main h1 {
+        font-size: 7rem;
+    }
+    /* Main */
+
+   /* Services Section */
+    #services { // Not working 
+        .service-bottom {
+            .service-item {
+                flex-basis: 45%;
+                margin: 2.5%;
+            }
+        }
+    }    
+    /* Section wrapper */
+    // project 
+    #Projects .project-item {
+		height: 400px;
+		margin: 0;
+		width: 100%;
+		border-radius: 0;
+	}
+/* Midia for tablet wrapper */
+}
+
+// Responsiveness Wrapper 
